@@ -58,6 +58,9 @@ export default class CarController extends Controller<Car> {
     res:Response<Car | ResponseError>,
   ):Promise<typeof res> => {
     const { id } = req.params;
+    if (!id || id.length < 24) {
+      return res.status(400).json({ error: this.errors.requiredId });
+    }
     const { body } = req;
     try {
       const car = await this.service.update(id, body);
@@ -74,6 +77,9 @@ export default class CarController extends Controller<Car> {
     res:Response<Car | ResponseError>,
   ):Promise<typeof res> => {
     const { id } = req.params;
+    if (!id || id.length < 24) {
+      return res.status(400).json({ error: this.errors.requiredId });
+    }
     try {
       const car = await this.service.delete(id);
       return car
