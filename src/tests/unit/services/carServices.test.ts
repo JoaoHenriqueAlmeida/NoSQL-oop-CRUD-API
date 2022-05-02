@@ -1,10 +1,10 @@
 import * as sinon from 'sinon';
 import { expect } from 'chai';
 
-import CarService from '../../../services/CarService';
-import { CarSchema } from '../../../interfaces/CarInterface';
+import CarService from '../../../services/CarServices';
+import  CarSchema from '../../../interfaces/CarInterface';
 
-import { postCarsInput, postCarsOutput, safeParseFail } from '../mocks/carMocks';
+import { postCarsInput, postCarsOutput, safeParseFail } from '../../mocks/carMocks';
 
 describe('Testing CarService layer', () => {
   const carService = new CarService();
